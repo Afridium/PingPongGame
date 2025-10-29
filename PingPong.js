@@ -28,7 +28,7 @@ let player2 = {
 let ballWidth = 10;
 let ballHeight = 10;
 let ball = {
-    x: boardWidth / 2,
+    x: boardWidth / 2 - ballWidth - 2,
     y: boardHeight / 2,
     width: ballWidth,
     height: ballHeight,
