@@ -48,6 +48,7 @@ const keys = {
 let player1Score = 0;
 let player2Score = 0;
 
+let isRunning = false;
 window.onload = function () {
     board = document.getElementById('board');
     board.height = boardHeight;
@@ -60,7 +61,15 @@ window.onload = function () {
     context.fillRect(player2.x, player2.y, player2.width, player2.height);
     context.fillRect(ball.x, ball.y, ball.width, ball.height);
     document.getElementById('start').addEventListener('click', function () {
-        requestAnimationFrame(update);
+        if (isRunning === false) {
+            requestAnimationFrame(update);
+        }
+
+    })
+
+    document.getElementById('reset').addEventListener('click', function () {
+        console.log('reseting');
+        location.reload();
     })
 
     drawMiddleBorder();
@@ -70,6 +79,7 @@ window.onload = function () {
 }
 
 function update() {
+    isRunning = true;
     requestAnimationFrame(update);
     context.clearRect(0, 0, board.height, board.width);
 
